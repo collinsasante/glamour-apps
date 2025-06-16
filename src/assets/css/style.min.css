@@ -185,7 +185,6 @@ html {
 
 .heading {
   position: relative;
-  text-transform: capitalize;
   font-size: 32px;
   z-index: 0;
 }
@@ -579,14 +578,14 @@ html {
 }
 
 .navbar-custom .navbar-collapse .navbar-nav .nav-item .nav-link {
-  font-size: 16px; /* Increased font size */
+  font-size: 16px;
   color: #020b12;
   background-color: rgba(0, 0, 0, 0) !important;
   margin: 0 14px;
   transition: all 0.5s;
   position: relative;
-  font-weight: 700; /* Made bold */
-  font-family: "Kumbh Sans", sans-serif; /* Corrected font-family syntax */
+  font-weight: 550;
+  font-family: "Kumbh Sans", sans-serif;
 }
 
 .navbar-custom .navbar-collapse .navbar-nav .nav-item .nav-link.active,
