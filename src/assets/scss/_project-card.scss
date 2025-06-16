@@ -1,0 +1,34 @@
+//
+// Project Cards
+//
+
+.project-card {
+  background-color: $light;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    border: 1px solid $dark !important;
+  }
+
+  .card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  .card-title a {
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .btn {
+    transition: all 0.3s;
+  }
+}
