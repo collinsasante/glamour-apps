@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import BackToTopButton from "./components/BackToTopButton";
-import ProjectCard from "./Components/ProjectCard";
+import Navbar from "./Components/Navbar";
+import Home from "./Components/Home";
+import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
+import BackToTopButton from "./Components/BackToTopButton";
 import ProjectSection from "./Components/ProjectSection";
 
 function App() {
