@@ -10,8 +10,8 @@ const Footer = () => {
             <div className="col-lg-12">
               <div className="mb-3 mb-sm-0">
                 <img
-                  src={logo_white} // <--- Now using the imported logo_white
-                  className="logo-dark" // You might want to change this className if it's a white logo
+                  src={logo_white}
+                  className="logo-dark"
                   alt="Kasy Logo"
                   height="45"
                 />
@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
 
             <div className="col-lg-3 col-md-4 col-6">
-              <h6 className="text-uppercase fw-semibold">About</h6>
+              <h6 className="fw-semibold">About</h6>
               <ul className="list-unstyled footer-link mt-3 mb-0 fs-14">
                 <li>
                   <a href="#">About</a>
@@ -38,7 +38,7 @@ const Footer = () => {
             {/* End col */}
 
             <div className="col-lg-3 col-md-4 col-6">
-              <h6 className="text-uppercase fw-semibold">Getting Started</h6>
+              <h6 className="fw-semibold">Getting Started</h6>
               <ul className="list-unstyled footer-link mt-3 mb-0 fs-14">
                 <li>
                   <a href="#">introduction</a>
@@ -60,7 +60,7 @@ const Footer = () => {
             {/* End col */}
 
             <div className="col-lg-3 col-md-4 col-6 d-none d-sm-block">
-              <h6 className="text-uppercase fw-semibold">Resources</h6>
+              <h6 className="fw-semibold">Resources</h6>
               <ul className="list-unstyled footer-link mt-3 mb-0 fs-14">
                 <li>
                   <a href="#">Monitoring Grader </a>
