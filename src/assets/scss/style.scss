@@ -1,37 +1,30 @@
 /* Template Name: Kasy
-   File Description: Main Css file of the template
+   File Description: Main SCSS file for the Kasy template
+   This file imports all partials and handles global configurations.
 */
 
-/****************************************
+// Import built-in Sass modules
+@use "sass:color"; // Necessary for color functions like adjust
 
-01.variables
-02.general
-03.helper
-04.components
-05.avatar
-06.menu
-07.home
-08.about
-09.features
-10.counter
-11.pricing
-12.contact 
-13.footer
+// Uncomment and ensure Bootstrap SCSS is available if you installed it via npm
+// and prefer to customize it by importing its source files.
+// @use "node_modules/bootstrap/scss/bootstrap";
+// @use "node_modules/@mdi/font/scss/materialdesignicons"; // If using MDI SCSS source
 
-
-*****************************************/
-
-@import "variables";
-@import "general";
-@import "helper";
-@import "components";
-@import "avatar";
-@import "menu";
-@import "home";
-@import "about";
-@import "features";
-@import "counter";
-@import "pricing";
-@import "testimonial";
-@import "footer";
-@import "contact";
+// Your custom modules using @use. Order matters for cascading styles and variable overrides.
+// 'variables' should generally be first to define colors/sizes for others.
+@use "variables";
+@use "general";
+@use "helper";
+@use "components";
+// @use "avatar"; // If your avatar styles are in a separate _avatar.scss, uncomment this.
+@use "menu";
+@use "home";
+@use "about";
+@use "features";
+@use "counter";
+@use "pricing";
+@use "testimonial";
+@use "footer";
+@use "contact";
+@use "project-card"; // Your new project card styles

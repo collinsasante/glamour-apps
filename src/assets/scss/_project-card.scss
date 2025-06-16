@@ -1,34 +1,85 @@
-//
-// Project Cards
-//
+// Kasy - Project Card Styles
+// Styles for your project display cards, using modern design principles.
+
+// Import variables
+@use "variables" as v;
+@use "sass:color"; // For color.adjust
 
 .project-card {
-  background-color: $light;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  border: none; // Remove default card border
+  overflow: hidden; // Ensures rounded corners apply cleanly to image
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 0.75rem; // Rounded corners for the card
+
+  // Modern shadow for depth
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.08);
 
   &:hover {
-    transform: translateY(-8px);
-    border: 1px solid $dark !important;
+    transform: translateY(-5px); // Lift card slightly on hover
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.12); // Enhanced shadow
   }
 
   .card-img-top {
-    max-height: 200px;
+    height: 220px; // Consistent height for images
     object-fit: cover;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-top-left-radius: 0.75rem; // Match card border-radius
+    border-top-right-radius: 0.75rem; // Match card border-radius
+    transition: transform 0.5s ease; // Smooth zoom effect
   }
 
-  .card-title a {
-    text-decoration: none;
-    transition: color 0.2s;
+  &:hover .card-img-top {
+    transform: scale(1.05); // Subtle zoom on image hover
+  }
 
-    &:hover {
-      color: $primary;
+  .card-body {
+    padding: 1.5rem; // More generous padding
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; // Distribute space
+  }
+
+  .card-title {
+    font-size: 1.4rem; // Slightly larger title
+    font-weight: 700; // Bolder title
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+
+    a {
+      color: v.$dark; // Using the original dark text color for titles
+      &:hover {
+        color: v.$primary; // Primary color on hover
+      }
     }
   }
 
-  .btn {
-    transition: all 0.3s;
+  .card-text {
+    font-size: 0.95rem;
+    color: v.$muted; // Softer text color
+    margin-bottom: 1rem; // Spacing before the button
+    flex-grow: 1; // Allows text to take up available space
+  }
+
+  // Styles for the "View Project" button within the card
+  .btn-outline-primary {
+    border-color: v.$primary;
+    color: v.$primary;
+    &:hover {
+      background-color: v.$primary-hover-bg; // Solid primary on hover
+      color: v.$primary-hover-text; // Text turns black on hover
+    }
+  }
+}
+
+// Optional: Styles for the projects section itself
+#projects {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  .heading {
+    margin-bottom: 1.5rem;
+  }
+  .text-muted.fs-17 {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

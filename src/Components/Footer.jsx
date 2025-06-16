@@ -1,5 +1,5 @@
 import React from "react";
-import logoDark from "../assets/images/logo-dark.png"; // Correct path to image
+import logo_white from "../assets/images/logo_white.png";
 
 const Footer = () => {
   return (
@@ -10,8 +10,8 @@ const Footer = () => {
             <div className="col-lg-12">
               <div className="mb-3 mb-sm-0">
                 <img
-                  src={logoDark}
-                  className="logo-dark"
+                  src={logo_white} // <--- Now using the imported logo_white
+                  className="logo-dark" // You might want to change this className if it's a white logo
                   alt="Kasy Logo"
                   height="45"
                 />
@@ -138,7 +138,7 @@ const Footer = () => {
             <div className="col-lg-12">
               <div className="text-center">
                 <p className="mb-0 text-white">
-                  ©{new Date().getFullYear()} Glam Pack.
+                  Copyright © {new Date().getFullYear()}. All Rights Reserved
                 </p>
               </div>
             </div>

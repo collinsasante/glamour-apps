@@ -1,98 +1,84 @@
+// Kasy - Navbar/Menu Styles
 
-//
-// menu.scss
-//
+// Import variables and Sass color module
+@use "variables" as v;
 
 .navbar-custom {
-  background-color: $white !important;
+  background-color: v.$white !important;
   padding: 18px 0px;
   width: 100%;
   border-radius: 0px;
   z-index: 999;
   margin-bottom: 0px;
   transition: all 0.5s ease-in-out;
-  .navbar-collapse {
-    .navbar-nav {
-      .nav-item {
-        .nav-link {
-          font-size: 14.5px;
-          color: $dark;
-          background-color: transparent !important;
-          margin: 0 14px;
-          transition: all .5s;
-          position: relative;
-          font-weight: 500;
-          &.active {
-            color: $primary;
-            &::before{
-              width: 100%;
-            }
-          }
 
-          &::before{
-            content: "";
-            position: absolute;
-            bottom: 0px;
-            width: 0px;
-            height: 2px;
-            background-color: $primary;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: all 0.2s;
-          }
-        }
+  .navbar-collapse .navbar-nav .nav-item .nav-link {
+    font-size: 14.5px;
+    color: v.$primary; // Primary color for nav links
+    background-color: rgba(0, 0, 0, 0) !important;
+    margin: 0 14px;
+    transition: all 0.5s;
+    position: relative;
+    font-weight: 500;
+
+    &.active {
+      color: v.$primary; // Primary color for active link
+      &::before {
+        width: 100%;
       }
     }
-    .nav-btn {
-      padding: 7px 25px;
-      background-color: $primary;
-      color: $white;
-      border-radius: 50px;
-      font-size: 13px;
-      letter-spacing: 1px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      width: 0px;
+      height: 2px;
+      background-color: v.$primary; // Primary color for active/hover underline
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 0.2s;
     }
   }
+
+  .navbar-collapse .nav-btn {
+    padding: 7px 25px;
+    background-color: v.$primary; // Primary color for navbar button
+    color: v.$white;
+    border-radius: 50px;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
   .navbar-toggler {
     font-size: 24px;
     margin-top: 5px;
     margin-bottom: 0px;
-    color: $dark;
-
-    
+    color: v.$primary; // Primary color for toggler icon
     &:focus {
-        box-shadow: 0 0 0 1.25px;
+      box-shadow: 0 0 0 1.25px;
     }
   }
-}
 
-.navbar-custom.navbar-white .navbar-nav li a.active ,
-.navbar-custom.navbar-white .navbar-nav li a:hover,
-.navbar-custom.navbar-white .navbar-nav li a:focus,
-.navbar-custom.navbar-white .navbar-nav li a:active {
-  color: $primary !important;
-}
-
-/*---NAVBAR STICKY--*/
-
-.nav-sticky {
-  &.navbar-custom {
-    margin-top: 0px;
-    padding: 18px 0px;
-    background-color: $white;
-    box-shadow: 0px 3px 10px 0px rgba(38, 107, 193, 0.08);
-  }
-
-  .navbar-nav {
-    li {
-      a {
-        color: $dark !important;
-      }
-    }
+  &.navbar-white .navbar-nav li a.active,
+  &.navbar-white .navbar-nav li a:hover,
+  &.navbar-white .navbar-nav li a:focus,
+  &.navbar-white .navbar-nav li a:active {
+    color: v.$primary !important; // Primary color for white navbar links on hover/active
   }
 }
 
+.nav-sticky.navbar-custom {
+  margin-top: 0px;
+  padding: 18px 0px;
+  background-color: v.$white;
+  box-shadow: 0px 3px 10px 0px v.$primary-rgba-08; // Primary-based shadow
+  .navbar-nav li a {
+    color: v.$primary !important; // Primary color for sticky navbar links
+  }
+}
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .nav-link {
     display: inline-block;
   }

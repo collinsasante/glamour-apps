@@ -22,7 +22,7 @@ const Navbar = () => {
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
           aria-controls="navbarCollapse"
-          aria-expanded={!isNavCollapsed ? true : false}
+          aria-expanded={!isNavCollapsed}
           aria-label="Toggle navigation"
           onClick={handleNavCollapse}
         >
@@ -39,17 +39,34 @@ const Navbar = () => {
                 Home
               </a>
             </li>
+
+            {/* Keeping direct links if they are meant to be standalone */}
+            {/* If 'Applications' and 'Staff Base' were meant to be parent links, you might want to create direct sections for them. */}
+            {/* For now, removing the dropdown structure. */}
+
             <li className="nav-item">
               <a className="nav-link" href="#projects">
-                Projects
+                {" "}
+                {/* Changed from dropdown toggle */}
+                Applications
               </a>
             </li>
+
             <li className="nav-item">
               <a className="nav-link" href="#contact">
-                Contact
+                {" "}
+                {/* Changed from dropdown toggle */}
+                Staff Base
+              </a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link" href="#daily-report">
+                Daily Work Report
               </a>
             </li>
           </ul>
+
           <div className="d-flex align-items-center">
             <div className="me-5 flex-shrink-0 d-none d-lg-block">
               <a className="btn btn-primary nav-btn" href="#">

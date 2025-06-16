@@ -1,11 +1,14 @@
-//
-// components.scss
-//
+// Kasy - Components
+// Styles for reusable UI components like buttons and avatars.
+
+// Import variables and Sass color module
+@use "variables" as v;
+@use "sass:color"; // For color functions like adjust
 
 .btn {
   padding: 13px 36px;
   font-size: 14px;
-  font-weight: $font-weight-medium;
+  font-weight: 500;
   transition: all 0.5s ease;
   position: relative;
   &:focus {
@@ -13,61 +16,289 @@
   }
 }
 
-@each $color, $value in $theme-colors {
-  .btn-#{$color} {
-    background: #{$value};
-    border-color: #{$value} !important;
-    &:hover,
-    &:focus,
-    &:active,
-    &.active,
-    &.focus,
-    &:not(:disabled):not(.disabled):active,
-    &:not(:disabled):not(.disabled):active:focus,
-    .open > .dropdown-toggle.btn-primary {
-      background: darken($value, 4%);
-      border-color: darken($value, 4%);
-      box-shadow: 0px 8px 20px -6px rgba($value, 0.6);
-      transform: translateY(-6px);
-    }
-  }
-  .btn-outline-#{$color} {
-    color: #{$value};
-    border-color: #{$value};
-    &:hover,
-    &:focus,
-    &:active,
-    &.active,
-    &.focus,
-    &:not(:disabled):not(.disabled):active,
-    &:not(:disabled):not(.disabled):active:focus,
-    .open > .dropdown-toggle.btn-primary {
-      background: $value;
-      border-color: $value;
-      box-shadow: 0px 8px 20px -6px rgba($value, 0.6);
-      transform: translateY(-6px);
-    }
+// Mixins to reduce repetition for button styles
+@mixin button-variant(
+  $bg-color,
+  $hover-bg-color,
+  $hover-border-color,
+  $shadow-color
+) {
+  background: $bg-color;
+  border-color: $bg-color !important;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.focus,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled):active:focus,
+  .open > .dropdown-toggle& {
+    background: $hover-bg-color;
+    border-color: $hover-border-color;
+    box-shadow: 0px 8px 20px -6px $shadow-color;
+    transform: translateY(-6px);
   }
 }
 
-.btn {
-  &.btn-outline-white,
-  &.btn-outline-light {
-    &:focus,
-    &:active,
-    &:hover,
-    &.active {
-      color: $dark;
-    }
+@mixin button-outline-variant(
+  $color,
+  $border-color,
+  $hover-bg-color,
+  $hover-border-color,
+  $hover-text-color,
+  $shadow-color
+) {
+  color: $color;
+  border-color: $border-color;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.focus,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled):active:focus,
+  .open > .dropdown-toggle& {
+    background: $hover-bg-color;
+    border-color: $hover-border-color;
+    box-shadow: 0px 8px 20px -6px $shadow-color;
+    transform: translateY(-6px);
+    color: $hover-text-color !important; // Apply specific hover text color
   }
-  &.btn-outline-primary,
-  &.btn-outline-dark,
-  &.btn-outline-success {
-    &:focus,
-    &:active,
-    &:hover,
-    &.active {
-      color: $white !important;
+}
+
+// Button Implementations using Mixins and Variables
+.btn-primary {
+  @include button-variant(
+    v.$primary,
+    color.adjust(v.$primary, $lightness: -4%),
+    color.adjust(v.$primary, $lightness: -4%),
+    v.$primary-rgba-60
+  );
+}
+.btn-outline-primary {
+  @include button-outline-variant(
+    v.$primary,
+    v.$primary,
+    v.$primary-hover-bg,
+    v.$primary-hover-bg,
+    v.$primary-hover-text,
+    v.$primary-rgba-60
+  );
+}
+
+.btn-success {
+  @include button-variant(
+    v.$success,
+    color.adjust(v.$success, $lightness: -4%),
+    color.adjust(v.$success, $lightness: -4%),
+    rgba(v.$success, 0.6)
+  );
+}
+.btn-outline-success {
+  @include button-outline-variant(
+    v.$success,
+    v.$success,
+    v.$success,
+    v.$success,
+    v.$white,
+    rgba(v.$success, 0.6)
+  );
+}
+
+// Assuming .btn-info should now use primary colors based on your request
+.btn-info {
+  @include button-variant(
+    v.$primary,
+    color.adjust(v.$primary, $lightness: -4%),
+    color.adjust(v.$primary, $lightness: -4%),
+    v.$primary-rgba-60
+  );
+}
+.btn-outline-info {
+  @include button-outline-variant(
+    v.$primary,
+    v.$primary,
+    v.$primary-hover-bg,
+    v.$primary-hover-bg,
+    v.$primary-hover-text,
+    v.$primary-rgba-60
+  );
+}
+
+.btn-warning {
+  @include button-variant(
+    v.$warning,
+    color.adjust(v.$warning, $lightness: -4%),
+    color.adjust(v.$warning, $lightness: -4%),
+    rgba(v.$warning, 0.6)
+  );
+}
+.btn-outline-warning {
+  @include button-outline-variant(
+    v.$warning,
+    v.$warning,
+    v.$warning,
+    v.$warning,
+    v.$white,
+    rgba(v.$warning, 0.6)
+  );
+}
+
+.btn-danger {
+  @include button-variant(
+    v.$danger,
+    color.adjust(v.$danger, $lightness: -4%),
+    color.adjust(v.$danger, $lightness: -4%),
+    rgba(v.$danger, 0.6)
+  );
+}
+.btn-outline-danger {
+  @include button-outline-variant(
+    v.$danger,
+    v.$danger,
+    v.$danger,
+    v.$danger,
+    v.$white,
+    rgba(v.$danger, 0.6)
+  );
+}
+
+.btn-light {
+  @include button-variant(
+    v.$light,
+    color.adjust(v.$light, $lightness: -4%),
+    color.adjust(v.$light, $lightness: -4%),
+    rgba(v.$light, 0.6)
+  );
+}
+.btn-outline-light {
+  @include button-outline-variant(
+    v.$light,
+    v.$light,
+    v.$light,
+    v.$light,
+    v.$dark,
+    rgba(v.$light, 0.6)
+  ); // Light needs dark text on hover
+}
+
+// Assuming .btn-dark should now use primary colors based on your request
+.btn-dark {
+  @include button-variant(
+    v.$primary,
+    color.adjust(v.$primary, $lightness: -4%),
+    color.adjust(v.$primary, $lightness: -4%),
+    v.$primary-rgba-60
+  );
+}
+.btn-outline-dark {
+  @include button-outline-variant(
+    v.$primary,
+    v.$primary,
+    v.$primary-hover-bg,
+    v.$primary-hover-bg,
+    v.$primary-hover-text,
+    v.$primary-rgba-60
+  );
+}
+
+.btn-muted {
+  @include button-variant(
+    v.$muted,
+    color.adjust(v.$muted, $lightness: -4%),
+    color.adjust(v.$muted, $lightness: -4%),
+    rgba(v.$muted, 0.6)
+  );
+}
+.btn-outline-muted {
+  @include button-outline-variant(
+    v.$muted,
+    v.$muted,
+    v.$muted,
+    v.$muted,
+    v.$white,
+    rgba(v.$muted, 0.6)
+  );
+}
+
+// Explicit text color for outline buttons on hover/focus (as per your original code)
+.btn.btn-outline-white:focus,
+.btn.btn-outline-white:active,
+.btn.btn-outline-white:hover,
+.btn.btn-outline-white.active,
+.btn.btn-outline-light:focus,
+.btn.btn-outline-light:active,
+.btn.btn-outline-light:hover,
+.btn.btn-outline-light.active {
+  color: v.$text-color; // Original dark text color for white/light outlines
+}
+
+.btn.btn-outline-primary:focus,
+.btn.btn-outline-primary:active,
+.btn.btn-outline-primary:hover,
+.btn.btn-outline-primary.active,
+.btn.btn-outline-dark:focus,
+.btn.btn-outline-dark:active,
+.btn.btn-outline-dark:hover,
+.btn.btn-outline-dark.active,
+.btn.btn-outline-success:focus,
+.btn.btn-outline-success:active,
+.btn.btn-outline-success:hover,
+.btn.btn-outline-success.active,
+.btn.btn-outline-info:focus,
+.btn.btn-outline-info:active,
+.btn.btn-outline-info:hover,
+.btn.btn-outline-info.active {
+  color: v.$white !important; // White text for primary/dark/success/info outlines on hover
+}
+
+// Avatar Styles
+.avatar-xs {
+  height: 2rem;
+  width: 2rem;
+}
+.avatar-sm {
+  height: 3rem;
+  width: 3rem;
+}
+.avatar-md {
+  height: 4rem;
+  width: 4rem;
+}
+.avatar-lg {
+  height: 6rem;
+  width: 6rem;
+}
+.avatar-xl {
+  height: 7.5rem;
+  width: 7.5rem;
+}
+
+.avatar-title {
+  align-items: center;
+  background-color: v.$primary; // Primary color for avatar background
+  color: v.$white;
+  display: flex;
+  font-weight: 500;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.avatar-group {
+  padding-left: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  .avatar-group-item {
+    margin-left: -12px;
+    border: 2px solid v.$light; // Light background for border
+    border-radius: 50%;
+    transition: all 0.2s;
+    &:hover {
+      position: relative;
+      transform: translateY(-2px);
     }
   }
 }

@@ -32,7 +32,7 @@ const ProjectSection = () => {
     <section className="section" id="projects">
       <div className="container">
         <div className="text-center mb-5">
-          <h3 className="heading">Projects</h3>
+          <h3 className="heading">Applications</h3>
           <p className="text-muted">
             Here are a few projects I've worked on recently.
           </p>
