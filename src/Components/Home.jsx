@@ -10,12 +10,12 @@ const Home = () => {
             <div className="home-heading">
               <h6 className="lh-sm">
                 <span className="text-primary">
-                  {" "}
-                  this is your exclusive space{" "}
+                  This is Your Exclusive Space
                 </span>
               </h6>
               <h1 className="lh-sm">
-                A Central Resource For Everything You Need to{" "}
+                a Central Resource for <br />
+                Everything You Need to <br />
                 <span className="text-primary">Thrive</span>
               </h1>
             </div>
@@ -34,10 +34,7 @@ const Home = () => {
         </div>
         {/* end row*/}
       </div>
-      {/*end container*/}
-
-      {/*end row*/}
-      {/*end container*/}
+      {/* end container */}
     </section>
   );
 };

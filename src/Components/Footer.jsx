@@ -134,17 +134,15 @@ const Footer = () => {
       {/* FOOTER-ALT */}
       <div className="footer-alt pt-3 pb-3">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="text-center">
-                <p className="mb-0 text-white">
-                  Copyright © {new Date().getFullYear()}. All Rights Reserved
-                </p>
-              </div>
-            </div>
+          <div className="d-flex justify-content-between align-items-center">
+            <p className="mb-0">
+              Copyright © {new Date().getFullYear()}. All Rights Reserved
+            </p>
+            <p className="mb-0">Terms and Conditions</p>
           </div>
         </div>
       </div>
+
       {/* END FOOTER-ALT */}
     </>
   );
