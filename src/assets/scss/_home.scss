@@ -9,19 +9,6 @@
     font-size: 50px;
     font-weight: 600;
   }
-
-  // ==== START: Added/Modified for Home Screen Image Size ====
-  // Adjust these values to control the size of your main home screen image.
-  // Assuming your main home screen image uses the class 'home-main-image'
-  // (or you can apply this directly to 'img' if it's the only image)
-  .home-img {
-    max-width: 70%; // Decreased image size to 70%
-    height: auto; // Maintain aspect ratio
-    display: block; // Ensures proper block-level behavior for width/margin
-    margin: 0 auto; // Centers the image horizontally
-  }
-  // ==== END: Added/Modified for Home Screen Image Size ====
-
   .home-btn {
     margin-top: 30px;
     .btn {
@@ -106,6 +93,6 @@
 @media (max-width: 1200px) {
   .home .home-img {
     height: auto;
-    max-width: 70%;
+    max-width: 100%;
   }
 }
