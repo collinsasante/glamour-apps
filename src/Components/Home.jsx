@@ -2,20 +2,27 @@ import React, { useState, useEffect } from "react";
 import homeImgSlideshow1 from "../assets/images/home-slideshow1.png"; // Update with your actual image paths
 import homeImgSlideshow2 from "../assets/images/home-slideshow2.png"; // Update with your actual image paths
 import homeImgSlideshow3 from "../assets/images/home-slideshow3.png"; // Update with your actual image paths
+import homeImgSlideshow4 from "../assets/images/home-slideshow4.png"; // Update with your actual image paths
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [homeImgSlideshow1, homeImgSlideshow2, homeImgSlideshow3];
-  const intervalTime = 3000; // Time in milliseconds between slides (3 seconds)
+
+  const slides = [
+    homeImgSlideshow1,
+    homeImgSlideshow2,
+    homeImgSlideshow3,
+    homeImgSlideshow4,
+  ];
+
+  const intervalTime = 3000; // 3 seconds
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, intervalTime);
 
-    // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
-  }, [slides.length]); // Re-run effect if the number of slides changes
+  }, [slides.length]);
 
   return (
     <section className="section home" id="home">
@@ -28,17 +35,33 @@ const Home = () => {
                   This is Your Exclusive Space
                 </span>
               </h6>
-              <h1 className="lh-sm">
+              <h1
+                className="lh-sm"
+                style={{
+                  width: "570px",
+                  height: "201.59px",
+                  color: "#0F0D1D",
+                  fontFamily: '"Kumbh Sans", sans-serif',
+                  fontSize: "60px",
+                  margin: "0px 0px 40px",
+                  lineHeight: "1.2",
+                }}
+              >
                 One Place With <br />
-                Everything to
-                <br />
+                Everything to <br />
                 <span className="text-primary">Thrive</span>
               </h1>
             </div>
           </div>
-          {/* end col*/}
           <div className="col-lg-7">
-            <div className="ms-md-4 home-slideshow-container">
+            <div
+              className="ms-md-4 home-slideshow-container"
+              style={{
+                position: "relative",
+                height: "100%",
+                overflow: "hidden",
+              }}
+            >
               {slides.map((image, index) => (
                 <img
                   key={index}
@@ -47,14 +70,12 @@ const Home = () => {
                   className={`home-slideshow-image ${
                     index === currentSlide ? "active" : ""
                   }`}
-                  // Inline styles for slideshow functionality
                   style={{
                     opacity: index === currentSlide ? 1 : 0,
                     position: "absolute",
                     top: 0,
                     left: 0,
                     width: "100%",
-                    // Change 'height: "auto"' to 'height: "100%"'
                     height: "100%",
                     transition: "opacity 1s ease-in-out",
                   }}
@@ -62,11 +83,8 @@ const Home = () => {
               ))}
             </div>
           </div>
-          {/* end col*/}
         </div>
-        {/* end row*/}
       </div>
-      {/* end container */}
     </section>
   );
 };

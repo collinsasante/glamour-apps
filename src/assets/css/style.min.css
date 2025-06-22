@@ -659,12 +659,10 @@ html {
   word-spacing: 8px;
 }
 
-/* --- IMPORTANT: UPDATED Home Slideshow Styling --- */
-/* This rule establishes the aspect ratio for the slideshow container */
 .home .ms-md-4.home-slideshow-container {
   position: relative; /* Essential for absolute positioning of images and text inside */
-  width: 120%; /* Takes full width of its column */
-  height: 0; /* This collapses the natural height to let padding-bottom define it */
+  width: 400px; /* Takes full width of its column */
+  height: 90px; /* This collapses the natural height to let padding-bottom define it */
   padding-bottom: 75%; /* Adjust based on your image's aspect ratio (e.g., 4:3 = 75%, 16:9 = 56.25%) */
   overflow: hidden; /* Ensures images are clipped if they exceed the container */
   margin-left: 1.5rem !important; /* Keep your Bootstrap margin (ms-md-4) */
