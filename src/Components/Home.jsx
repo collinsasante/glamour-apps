@@ -48,8 +48,8 @@ const Home = () => {
                 }}
               >
                 One Place With <br />
-                Everything to <br />
-                <span className="text-primary">Thrive</span>
+                <span className="text-primary">Everything </span>
+                to <br /> Thrive
               </h1>
             </div>
           </div>
