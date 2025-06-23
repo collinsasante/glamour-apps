@@ -327,7 +327,7 @@ html {
   box-shadow: none !important; /* Remove glowing */
   transform: none !important; /* Remove translateY */
   background-color: inherit; /* Ensure the button's *actual* background does not override the pseudo-element. This allows the pseudo-element to fully cover. */
-  border-color: transparent !important; /* THIS IS THE KEY CHANGE: Remove black border on hover */
+  border-color: transparent !important; /* Remove black border on hover */
 }
 
 /* Specific adjustments for outline buttons on hover */
@@ -339,7 +339,7 @@ html {
 .btn-outline-light:hover {
   background-color: transparent !important; /* Critical to allow pseudo-element to apply */
   color: #fff !important; /* Ensures text is white for outline buttons on hover */
-  border-color: transparent !important; /* THIS IS THE KEY CHANGE: Remove border for outline buttons on hover */
+  border-color: transparent !important; /* Remove border for outline buttons on hover */
 }
 
 /* Ensure outline button initial text color and border color are correct */
@@ -514,10 +514,9 @@ html {
   color: #d90a2c !important;
 }
 
-/* General hover effect for interactive elements (excluding buttons with the drop animation) */
-a:hover,
+/* General hover effect for interactive elements (excluding specific nav links and buttons) */
+/* Removed general a:hover that applied black background to nav links */
 .primary-link:hover,
-.navbar-custom .navbar-collapse .navbar-nav .nav-item .nav-link:hover,
 #back-to-top:hover,
 .footer-social a:hover,
 .bg-footer .footer-link a:hover {
